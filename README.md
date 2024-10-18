@@ -32,10 +32,10 @@
 ## 3. Pagination
 
 - Page & size parameter: `/user?page=0%size=10`
-  - Use case: management protal.
+  - Use case: management portal.
   - Must document: page start counting with 0 or 1.
 - Offset & limit parameters: `/user?offset=0&limit=10`
-  - Use case: a infinite scrollable list, newsfeed, logging envents, a scan for data, ...
+  - Use case: a infinite scrollable list, newsfeed, logging events, a scan for data, ...
 
 ### Problem 01
 
@@ -54,7 +54,7 @@
 ```sql
 SELECT * FROM
 (SELECT id FROM users ORDER BY id LIMIT 100, 10) a USING id
-JOIN users b ON a.id = a.id;
+JOIN users b ON a.id = b.id;
 ```
 
 ## 4. Sorting
@@ -90,7 +90,7 @@ JOIN users b ON a.id = a.id;
 
 #### 6.1.2. Issues
 
-- Request timeout, latency (Connection's poblem).
+- Request timeout, latency (Connection's problem).
 - Client is blocked (Client's problem).
 - Out of memory (Server's problem).
 - Large result of the query (DB's problem).
